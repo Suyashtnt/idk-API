@@ -14,7 +14,7 @@ import type { input, output } from "../typings/body.ts";
 @Middleware()
 export class ResponseTime {
   date = Date.now();
-  public onPreRequest(@ResponseParam() response: Response): boolean {
+  public onPreRequest(): boolean {
     this.date = Date.now();
     return true;
   }
