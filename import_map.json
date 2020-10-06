@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "mandarinets": "https://deno.land/x/mandarinets/mod.ts"
+  }
+}
