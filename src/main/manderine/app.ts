@@ -1,7 +1,33 @@
-import { MandarineCore, Controller, GET, POST, RequestBody } from "mandarinets";
+import {
+  MandarineCore,
+  Controller,
+  GET,
+  POST,
+  RequestBody,
+  Middleware,
+  ResponseParam,
+  UseMiddleware,
+} from "mandarinets";
+import { Response } from "https://deno.land/x/mandarinets@v2.1.1/deps.ts";
 import type { input, output } from "../typings/body.ts";
 
+@Middleware()
+export class ResponseTime {
+  date = Date.now();
+  public onPreRequest(@ResponseParam() response: Response): boolean {
+    this.date = Date.now();
+    return true;
+  }
+
+  public onPostRequest(@ResponseParam() response: Response): void {
+    this.date = Date.now() - this.date;
+    response.headers.set("X-Response-Time", this.date.toString());
+    console.log(`done. It took ${this.date}ms`);
+  }
+}
+
 @Controller()
+@UseMiddleware([ResponseTime])
 export class MyController {
   @GET("/")
   public getHandler() {
@@ -19,6 +45,7 @@ export class MyController {
         )
         .join(" ");
     });
+    console.log("here");
 
     return {
       value: newWords.join(" "),
@@ -26,4 +53,5 @@ export class MyController {
   }
 }
 
-new MandarineCore().MVC().run();
+const MVC = new MandarineCore().MVC();
+MVC.run();
