@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "importsNotUsedAsValues": "preserve",
-        "isolatedModules": false
-    }
+	"compilerOptions": {
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"importsNotUsedAsValues": "preserve",
+		"isolatedModules": false
+	}
 }

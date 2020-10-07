@@ -1,13 +1,13 @@
 {
-  "$schema": "https://cdn.deno.land/denon/versions/2.4.1/raw/schema.json",
+	"$schema": "https://cdn.deno.land/denon/versions/2.4.1/raw/schema.json",
 
-  "scripts": {
-    "start": {
-      "cmd": "deno run -A -c tsconfig.json --importmap=import_map.json --unstable src/main/manderine/app.ts",
-      "desc": "run my app.ts file"
-    }
-  },
-  "watcher": {
-    "match": ["**/*"]
-  }
+	"scripts": {
+		"start": {
+			"cmd": "deno run -A -c tsconfig.json --importmap=import_map.json --unstable src/main/manderine/app.ts",
+			"desc": "run my app.ts file"
+		}
+	},
+	"watcher": {
+		"match": ["**/*"]
+	}
 }
