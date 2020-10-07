@@ -1,5 +1,5 @@
 export interface input {
-  value: string;
+  value?: string;
 }
 export interface output {
   value: string;
